@@ -102,7 +102,9 @@ fun MainScreen() {
                                             Pair("Bengali", "ben"), Pair("Spanish", "esp"),
                                             Pair("Portuguese", "por"), Pair("Italian", "ita"),
                                             Pair("Russian", "rus"), Pair("Chinese", "zho"),
-                                            Pair("Urdu", "urd"), Pair("Korean", "kor")
+                                            Pair("Urdu", "urd"), Pair("Korean", "kor"),
+                                            Pair("Filipino", "fil"), Pair("Czech", "ces"),
+                                            Pair("Ukrainian", "ukr")
                                         )
                                     }
 
