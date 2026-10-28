@@ -151,7 +151,10 @@ fun MainScreen() {
                         contentPadding = PaddingValues(horizontal = 10.dp),
                         verticalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
-                        itemsIndexed(items = factsState.list) { index, fact ->
+                        itemsIndexed(
+                            items = factsState.list,
+                            key = { index, fact -> fact.hashCode() + index }
+                        ) { index, fact ->
                             val number = index + 1
 
                             FactItem(
