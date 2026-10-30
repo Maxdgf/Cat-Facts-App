@@ -17,12 +17,13 @@ import kotlinx.serialization.json.Json
 
 import com.maxdgf.top15randomcatfacts.BuildConfig
 
-
 private const val KTOR_LOG_TAG = "* [Ktor]"
 
 private const val KTOR_REQUEST_TIMEOUT = 20_000L
 private const val KTOR_CONNECT_TIMEOUT = 15_000L
 private const val KTOR_SOCKET_TIMEOUT = 10_000L
+
+private const val CAT_FACTS_COUNT = 15
 
 val httpClient = HttpClient(OkHttp) {
     install(ContentNegotiation) {
@@ -53,6 +54,6 @@ val httpClient = HttpClient(OkHttp) {
     }
 
     defaultRequest {
-        url("https://meowfacts.herokuapp.com/?count=15")
+        url("https://meowfacts.herokuapp.com/?count=$CAT_FACTS_COUNT")
     }
 }
