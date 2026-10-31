@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
@@ -47,7 +48,7 @@ fun LanguageItem(
                     modifier = Modifier
                         .size(25.dp)
                         .background(
-                            color = Color(0xFF4CAF50),
+                            brush = Brush.radialGradient(colors = listOf(Color(0xFF90FF94), Color(0xFF6DCE6F))),
                             shape = CircleShape
                         )
                 )
