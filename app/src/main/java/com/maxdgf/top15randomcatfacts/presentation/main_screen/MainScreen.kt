@@ -32,6 +32,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -57,6 +58,13 @@ fun MainScreen() {
     Scaffold(
         topBar = {
             TopAppBar(
+                navigationIcon = {
+                    Icon(
+                        painter = painterResource(R.drawable.cat_icon),
+                        contentDescription = "cat icon",
+                        tint = Color.White
+                    )
+                },
                 title = {
                     Text(text = stringResource(R.string.app_name))
                 },
