@@ -52,9 +52,6 @@ import com.maxdgf.top15randomcatfacts.presentation.main_screen.utils.ShareManage
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
 fun MainScreen() {
-    val viewModel: MainViewModel = koinViewModel()
-
-    val facts by viewModel.allCatFacts.collectAsState()
     var selectLanguageDialogState by remember { mutableStateOf(false) }
 
     Scaffold(
@@ -92,6 +89,7 @@ fun MainScreen() {
             )
         }
     ) { innerPadding ->
+        val viewModel: MainViewModel = koinViewModel()
         val isRefreshing by viewModel.isRefreshing.collectAsState()
 
         PullToRefreshBox(
@@ -102,11 +100,11 @@ fun MainScreen() {
                 .padding(innerPadding),
             contentAlignment = Alignment.Center
         ) {
+            val facts by viewModel.allCatFacts.collectAsState()
+
             when (val factsState = facts) {
                 is CatFactsResult.Content -> {
                     if (selectLanguageDialogState) {
-                        val selectedLanguageCode by viewModel.selectedLanguage.collectAsState()
-
                         AlertDialog(
                             title = { Text(text = "Select facts language") },
                             onDismissRequest = { selectLanguageDialogState = false },
@@ -123,6 +121,8 @@ fun MainScreen() {
                                             Pair("Ukrainian", "ukr")
                                         )
                                     }
+
+                                    val selectedLanguageCode by viewModel.selectedLanguage.collectAsState()
 
                                     LazyColumn(
                                         modifier = Modifier
