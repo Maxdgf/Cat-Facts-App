@@ -167,6 +167,10 @@ fun MainScreen() {
                         contentPadding = PaddingValues(horizontal = 10.dp),
                         verticalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
+                        item(key = "top spacer") {
+                            Spacer(modifier = Modifier.height(5.dp))
+                        }
+
                         itemsIndexed(
                             items = factsState.list,
                             key = { index, fact -> fact.hashCode() + index }
@@ -183,6 +187,10 @@ fun MainScreen() {
                                         Toast.makeText(context, "Unable to share fact!", Toast.LENGTH_SHORT).show()
                                 }
                             )
+                        }
+
+                        item(key = "bottom spacer") {
+                            Spacer(modifier = Modifier.height(5.dp))
                         }
                     }
                 }
