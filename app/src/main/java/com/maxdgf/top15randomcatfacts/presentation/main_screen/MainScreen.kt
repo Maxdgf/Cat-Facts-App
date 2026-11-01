@@ -2,6 +2,7 @@ package com.maxdgf.top15randomcatfacts.presentation.main_screen
 
 
 import android.widget.Toast
+import androidx.compose.foundation.basicMarquee
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -37,6 +38,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 import org.koin.androidx.compose.koinViewModel
 
@@ -66,7 +68,13 @@ fun MainScreen() {
                     )
                 },
                 title = {
-                    Text(text = stringResource(R.string.app_name))
+                    Text(
+                        text = stringResource(R.string.app_name),
+                        maxLines = 1,
+                        softWrap = false,
+                        fontSize = 20.sp,
+                        modifier = Modifier.basicMarquee(iterations = Int.MAX_VALUE)
+                    )
                 },
                 actions = {
                     IconButton(onClick = { selectLanguageDialogState = true }) {
